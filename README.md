@@ -45,3 +45,9 @@ Install using your favorite plugin manager, e.g. `lazy.nvim`
     end,
   }
 ```
+
+## Credits
+
+- [`no-clown-fiesta.nvim`](https://github.com/aktersnurra/no-clown-fiesta.nvim/tree/master) for the overall plugin source structure
+- [`kanagawa.nvim`](https://github.com/rebelot/kanagawa.nvim) for the Hokusai inspiration
+- [`gruvbox.nvim`](https://github.com/ellisonleao/gruvbox.nvim) for the general color<->highlight mapping
