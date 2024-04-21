@@ -34,7 +34,7 @@ function M.highlight(c, opts)
     Folded = { bg = c.bg3, fg = c.green },
     Function = { fg = c.blue },
     Identifier = { fg = c.fg0 },
-    Keyword = { fg = c.red },
+    Keyword = { fg = c.orange },
     LineNr = { bg = c.bg3, fg = c.grey1 },
     MatchParen = { bold = true, fg = c.orange },
     ModeMsg = { bold = true, fg = c.orange },
