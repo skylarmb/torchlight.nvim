@@ -1,0 +1,20 @@
+return {
+  require('torchlight.groups.builtin'),
+  require('torchlight.groups.treesitter'),
+  require('torchlight.groups.lsp'),
+
+  require('torchlight.groups.dap'),
+  require('torchlight.groups.dashboard'),
+  require('torchlight.groups.git'),
+  -- require('torchlight.groups.illuminate'),
+  -- require('torchlight.groups.indent-blankline'),
+  require('torchlight.groups.lazy'),
+  require('torchlight.groups.lualine'),
+  require('torchlight.groups.misc'),
+  require('torchlight.groups.neo-tree'),
+  require('torchlight.groups.nvim-cmp'),
+  require('torchlight.groups.nvim-notify'),
+  require('torchlight.groups.nvim-tree'),
+  require('torchlight.groups.tabline'),
+  require('torchlight.groups.telescope'),
+}
