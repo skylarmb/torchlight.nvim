@@ -7,6 +7,7 @@ function M.setup(opts)
   end
 
   local opts = settings.opts
+
   vim.api.nvim_command('hi clear')
   if vim.fn.exists('syntax_on') then
     vim.api.nvim_command('syntax reset')

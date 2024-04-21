@@ -1,6 +1,7 @@
 local M = {}
 
 function M.highlight(c, opts)
+  vim.print(vim.inspect(opts))
   local normalBg = c.bg0
   if opts.contrast == 'hard' then
     normalBg = c.bg_dim
