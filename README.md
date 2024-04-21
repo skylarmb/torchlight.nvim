@@ -3,7 +3,7 @@
 
 <h1 style="text-align: center">torchlight.nvim</h1>
 
-A a cozy colorscheme inspired by the painting "Fishing by Torchlight in Kai Province" by Hokusai. Hokusai lived between 1760 and 1849 and likely painted this painting around 1833.
+A cozy colorscheme inspired by the painting "Fishing by Torchlight in Kai Province" by Hokusai. Hokusai lived between 1760 and 1849 and likely painted this painting around 1833.
 
 This colorscheme adopts the natural pallette of "Fishing by Torchlight in Kai Province" and thus uses a minimal amount of blue hues. This makes it friendly on the eyes, especially at night.
 
