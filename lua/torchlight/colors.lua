@@ -18,7 +18,7 @@ local M = {
 
   debug = '#FF00FF',
 
-  blue = '#799173',
+  blue = '#7C8B70',
   cyan = '#799173',
   green = '#979764',
   -- green_dim = "#4A482C",
