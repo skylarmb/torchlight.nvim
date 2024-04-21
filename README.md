@@ -1,9 +1,8 @@
+<h1 align="center"><code>torchlight.nvim</code></h1>
+
 <img alt="Fishing by Torchlight in Kai Province" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/216c8205-39e0-4ee8-b1ea-2854b6c9b250"></img>
 
-
-<h1 style="text-align: center">torchlight.nvim</h1>
-
-A a warm green colorscheme inspired by the painting "Fishing by Torchlight in Kai Province" by Hokusai. Hokusai lived between 1760 and 1849 and likely painted this painting around 1833.
+A cozy colorscheme inspired by the painting "Fishing by Torchlight in Kai Province" by Katsushika Hokusai. Hokusai lived between 1760 and 1849 and likely painted this painting around 1833.
 
 This colorscheme adopts the natural pallette of "Fishing by Torchlight in Kai Province" and thus uses a minimal amount of blue hues. This makes it friendly on the eyes, especially at night.
 
@@ -22,34 +21,62 @@ Install using your favorite plugin manager, e.g. `lazy.nvim`
     "skylarmb/torchlight.nvim",
     lazy = false,
     config = function()
-      require("torchlight").setup()
+      require("torchlight").setup({
+        contrast = "medium", -- possible values: soft, medium, hard
+      })
     end,
   }
 ```
 
+## Contrast
+
+Three levels of contrast are available, set via the `contrast` option. 
+
+<details>
+   <summary><code>soft</code></summary>
+   <img width="974" alt="Screenshot 2024-04-21 at 4 03 44 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/19d8dd62-73c6-499d-bf53-c33dc9f36347">
+</details>
+<details>
+   <summary><code>medium</code> (default)</summary>
+  <img width="974" alt="Screenshot 2024-04-21 at 4 04 09 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/9a77d1c3-2225-4c5e-94de-571b7068735f">
+</details>
+<details>
+   <summary><code>hard</code></summary>
+  <img width="974" alt="Screenshot 2024-04-21 at 4 04 43 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/89cf3ce1-1f23-427c-acea-a838671457ba">
+
+</details>
+
+
 ## Screenshots 
 
 <details>
-   <summary>C++</summary>
-<img width="1125" alt="Screenshot 2024-04-21 at 12 04 12 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/76bccafe-df38-4038-8c6a-1d74bd5afc74">
+   <summary>C</summary>
+<img width="988" alt="Screenshot 2024-04-21 at 2 17 09 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/b088e0b3-d491-43ee-b4cf-78d1671d7165">
 
 </details>
 
 <details>
-   <summary>Typescript</summary>
-<img width="1125" alt="Screenshot 2024-04-21 at 12 05 39 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/480a94bf-51e8-4f00-98d9-ee639730ac34">
+   <summary>Python</summary>
+<img width="988" alt="Screenshot 2024-04-21 at 2 16 51 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/11c5a875-e60a-465d-9cf0-07f97756cf75">
 
 </details>
 
 <details>
-   <summary>Kotlin</summary>
-<img width="1125" alt="Screenshot 2024-04-21 at 12 03 39 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/34515439-4a8a-49fd-9b69-badfa5c040d8">
+   <summary>Go</summary>
+<img width="988" alt="Screenshot 2024-04-21 at 2 17 42 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/74ffdc7a-efeb-49af-901e-96832d0696c9">
+
+</details>
+
+<details>
+   <summary>Rust</summary>
+  <img width="988" alt="Screenshot 2024-04-21 at 2 18 28 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/8f333426-3860-4252-88f4-8256de319f2f">
 
 </details>
 
 <details>
    <summary>Lua</summary>
-   <img width="1125" alt="Screenshot 2024-04-21 at 12 10 24 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/6abb2b44-b0fe-41a2-b91f-695022440c81">
+   <img width="988" alt="Screenshot 2024-04-21 at 2 21 55 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/350ced2a-cf94-4781-a8a4-5785ad79bcfa">
+
 </details>
 
 ## Credits
