@@ -7,6 +7,26 @@ A a warm green colorscheme inspired by the painting "Fishing by Torchlight in Ka
 
 This colorscheme adopts the natural pallette of "Fishing by Torchlight in Kai Province" and thus uses a minimal amount of blue hues. This makes it friendly on the eyes, especially at night.
 
+## Plugin support
+
+A few common plugins are supported including `nvim-treesitter`, `lualine.nvim`, `nvim-tree`, etc. See [lua/torchlight/groups](https://github.com/skylarmb/torchlight.nvim/tree/main/lua/torchlight/groups) for a more complete list. 
+
+PRs welcome to add support for more plugins.
+
+## Usage
+
+Install using your favorite plugin manager, e.g. `lazy.nvim`
+
+```lua
+  {
+    "skylarmb/torchlight.nvim",
+    lazy = false,
+    config = function()
+      require("torchlight").setup()
+    end,
+  }
+```
+
 ## Screenshots 
 
 <details>
@@ -32,16 +52,8 @@ This colorscheme adopts the natural pallette of "Fishing by Torchlight in Kai Pr
    <img width="1125" alt="Screenshot 2024-04-21 at 12 10 24 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/6abb2b44-b0fe-41a2-b91f-695022440c81">
 </details>
 
-## Usage
+## Credits
 
-Install using your favorite plugin manager, e.g. `lazy.nvim`
-
-```lua
-  {
-    "skylarmb/torchlight.nvim",
-    lazy = false,
-    config = function()
-      require("torchlight").setup()
-    end,
-  }
-```
+- [`no-clown-fiesta.nvim`](https://github.com/aktersnurra/no-clown-fiesta.nvim/tree/master) for the overall plugin source structure
+- [`kanagawa.nvim`](https://github.com/rebelot/kanagawa.nvim) for the Hokusai inspiration
+- [`gruvbox.nvim`](https://github.com/ellisonleao/gruvbox.nvim) for the general color<->highlight mapping
