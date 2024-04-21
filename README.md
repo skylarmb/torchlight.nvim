@@ -21,10 +21,31 @@ Install using your favorite plugin manager, e.g. `lazy.nvim`
     "skylarmb/torchlight.nvim",
     lazy = false,
     config = function()
-      require("torchlight").setup()
+      require("torchlight").setup({
+        contrast = "medium", -- possible values: soft, medium, hard
+      })
     end,
   }
 ```
+
+## Contrast
+
+Three levels of contrast are available, set via the `contrast` option. 
+
+<details>
+   <summary><code>soft</code></summary>
+   <img width="974" alt="Screenshot 2024-04-21 at 4 03 44 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/19d8dd62-73c6-499d-bf53-c33dc9f36347">
+</details>
+<details>
+   <summary><code>medium</code> (default)</summary>
+  <img width="974" alt="Screenshot 2024-04-21 at 4 04 09 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/9a77d1c3-2225-4c5e-94de-571b7068735f">
+</details>
+<details>
+   <summary><code>hard</code></summary>
+  <img width="974" alt="Screenshot 2024-04-21 at 4 04 43 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/89cf3ce1-1f23-427c-acea-a838671457ba">
+
+</details>
+
 
 ## Screenshots 
 
