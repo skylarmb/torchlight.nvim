@@ -2,11 +2,17 @@ local M = {}
 
 function M.highlight(c, opts)
   local normalBg = c.bg0
+  local normalFg = c.fg0
+  local brightFg = c.fg_bright
+  local cursorLineBg = c.bg1
+
   if opts.contrast == 'hard' then
     normalBg = c.bg_dim
+    cursorLineBg = c.bg0
   end
   if opts.contrast == 'soft' then
     normalBg = c.bg2
+    cursorLineBg = c.bg3
   end
 
   return {
@@ -16,9 +22,9 @@ function M.highlight(c, opts)
     Comment = { fg = c.grey2, italic = true },
     Conceal = { fg = c.green },
     Constant = { fg = c.fg3 },
-    Cursor = { bg = c.fg_bright, fg = c.bg1 },
-    CursorLine = { bg = c.bg4 },
-    CursorLineNr = { bg = c.bg4, bold = true, fg = c.yellow },
+    Cursor = { bg = brightFg, fg = c.bg1 },
+    CursorLine = { bg = cursorLineBg },
+    CursorLineNr = { bg = cursorLineBg, bold = true, fg = c.yellow },
     Delimiter = { fg = c.fg1 },
     Directory = { fg = c.green },
     EndOfBuffer = { fg = c.bg1 },
@@ -33,22 +39,22 @@ function M.highlight(c, opts)
     FloatermBorder = { bg = c.bg2, fg = c.fg1 },
     Folded = { bg = c.bg3, fg = c.green },
     Function = { fg = c.blue },
-    Identifier = { fg = c.fg0 },
+    Identifier = { fg = normalFg },
     Keyword = { fg = c.orange },
-    LineNr = { bg = c.bg3, fg = c.grey1 },
+    LineNr = { bg = cursorLineBg, fg = c.grey1 },
     MatchParen = { bold = true, fg = c.orange },
     ModeMsg = { bold = true, fg = c.orange },
     MoreMsg = { fg = c.cyan },
     MsgArea = { fg = c.fg_dim },
     MsgSeparator = { bg = c.bg0 },
     NonText = { fg = c.grey0 },
-    Normal = { bg = normalBg, fg = c.fg0 },
+    Normal = { bg = normalBg, fg = normalFg },
     NormalDark = { bg = c.bg0, fg = c.fg_dim },
-    NormalNC = { bg = c.bg1, fg = c.fg0 },
+    NormalNC = { bg = cursorLineBg, fg = normalFg },
     Number = { fg = c.orange },
     NvimInternalError = { bg = c.bg_5, ctermbg = 9, ctermfg = 9, fg = c.red_bright },
     Operator = { fg = c.red },
-    Pmenu = { bg = c.bg2, fg = c.fg_bright },
+    Pmenu = { bg = c.bg2, fg = normalFg },
     PmenuSbar = { bg = c.bg2, fg = c.fg_dim },
     PmenuSel = { bg = c.bg5 },
     PmenuThumb = { bg = c.bg2, fg = c.fg_dim },
@@ -67,7 +73,7 @@ function M.highlight(c, opts)
     Statement = { bold = true, fg = c.yellow_bright },
     StatusLine = { bg = c.bg0, fg = c.fg_dim },
     StatusLineNC = { bg = c.bg0, fg = c.grey0 },
-    String = { fg = c.green },
+    String = { fg = c.green, italic = true },
     Substitute = { bg = c.bg5, fg = c.cyan },
     Title = { bold = true, fg = c.green },
     Todo = { bg = c.bg5, bold = true, fg = c.cyan },
