@@ -8,7 +8,7 @@ This colorscheme adopts the natural pallette of "Fishing by Torchlight in Kai Pr
 
 ## Plugin support
 
-A few common plugins are supported including `nvim-treesitter`, `lualine.nvim`, `nvim-tree`, etc. See [lua/torchlight/groups](https://github.com/skylarmb/torchlight.nvim/tree/main/lua/torchlight/groups) for a more complete list. 
+A few common plugins are supported including `nvim-treesitter`, `lualine.nvim`, `nvim-tree`, etc. See [lua/torchlight/groups](https://github.com/skylarmb/torchlight.nvim/tree/main/lua/torchlight/groups) for a more complete list.
 
 PRs welcome to add support for more plugins.
 
@@ -20,17 +20,17 @@ Install using your favorite plugin manager, e.g. `lazy.nvim`
   {
     "skylarmb/torchlight.nvim",
     lazy = false,
-    config = function()
-      require("torchlight").setup({
-        contrast = "medium", -- possible values: soft, medium, hard
-      })
-    end,
-  }
+    priority = 1000,
+    opts = {
+      contrast = "medium", -- possible values: soft, medium, hard
+    },
+  },
+
 ```
 
 ## Contrast
 
-Three levels of contrast are available, set via the `contrast` option. 
+Three levels of contrast are available, set via the `contrast` option.
 
 <details>
    <summary><code>soft</code></summary>
@@ -47,7 +47,7 @@ Three levels of contrast are available, set via the `contrast` option.
 </details>
 
 
-## Screenshots 
+## Screenshots
 
 <details>
    <summary>C</summary>
