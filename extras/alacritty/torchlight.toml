@@ -1,0 +1,35 @@
+# Torchlight theme for Alacritty
+[colors.bright]
+black = "#575547"
+white = "#E8D2A9"
+blue = "#848A68"
+cyan = "#799173"
+green = "#979764"
+magenta = "#D97E4A"
+red = "#D0654B"
+yellow = "#E3A138"
+
+[colors.dim]
+black = "#131312"
+white = "#E3CA9A"
+blue = "#848A68"
+cyan = "#799173"
+green = "#979764"
+magenta = "#D97E4A"
+red = "#D0654B"
+yellow = "#E3A138"
+
+[colors.normal]
+black = "#131312"
+white = "#E3CA9A"
+blue = "#848A68"
+cyan = "#799173"
+green = "#979764"
+magenta = "#D97E4A"
+red = "#D0654B"
+yellow = "#E3A138"
+
+[colors.primary]
+background = "#131312"
+bright_foreground = "#E8D2A9"
+foreground = "#E3CA9A"

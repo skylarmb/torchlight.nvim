@@ -79,6 +79,9 @@ Three levels of contrast are available, set via the `contrast` option.
 
 </details>
 
+## Terminal colors
+`term` mode colors within nvim should be set by the theme. For terminal emulator colorschemes, see `./extras`. Currently available is Alacritty, but other ports are welcome.
+
 ## Credits
 
 - [`no-clown-fiesta.nvim`](https://github.com/aktersnurra/no-clown-fiesta.nvim/tree/master) for the overall plugin source structure
