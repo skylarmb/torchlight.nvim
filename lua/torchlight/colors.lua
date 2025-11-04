@@ -1,4 +1,5 @@
 local M = {
+  bg_stark = '#0d0d0d',
   bg_dim = '#131312',
   bg0 = '#1E1D1D',
   bg1 = '#212120',

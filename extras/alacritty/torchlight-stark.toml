@@ -1,5 +1,5 @@
-# Torchlight medium theme for Alacritty (default)
-# Features balanced contrast
+# Torchlight stark theme for Alacritty
+# Features an almost black background for maximum contrast
 [colors.bright]
 black = "#575547"
 white = "#E8D2A9"
@@ -11,7 +11,7 @@ red = "#D0654B"
 yellow = "#E3A138"
 
 [colors.dim]
-black = "#1E1D1D"
+black = "#0d0d0d"
 white = "#E3CA9A"
 blue = "#848A68"
 cyan = "#799173"
@@ -21,7 +21,7 @@ red = "#D0654B"
 yellow = "#E3A138"
 
 [colors.normal]
-black = "#1E1D1D"
+black = "#0d0d0d"
 white = "#E3CA9A"
 blue = "#848A68"
 cyan = "#799173"
@@ -31,6 +31,6 @@ red = "#D0654B"
 yellow = "#E3A138"
 
 [colors.primary]
-background = "#1E1D1D"
+background = "#0d0d0d"
 bright_foreground = "#E8D2A9"
 foreground = "#E3CA9A"

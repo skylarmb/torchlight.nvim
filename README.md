@@ -22,7 +22,7 @@ Install using your favorite plugin manager, e.g. `lazy.nvim`
     lazy = false,
     priority = 1000,
     opts = {
-      contrast = "medium", -- possible values: soft, medium, hard
+      contrast = "medium", -- possible values: soft, medium, hard, stark
     },
   },
 
@@ -30,24 +30,31 @@ Install using your favorite plugin manager, e.g. `lazy.nvim`
 
 ## Contrast
 
-Three levels of contrast are available, set via the `contrast` option.
+Four levels of contrast are available, set via the `contrast` option.
 
 <details>
-   <summary><code>soft</code></summary>
-   <img width="974" alt="Screenshot 2024-04-21 at 4 03 44 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/19d8dd62-73c6-499d-bf53-c33dc9f36347">
+    <summary><code>soft</code></summary>
+    <img width="974" alt="Screenshot 2024-04-21 at 4 03 44 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/19d8dd62-73c6-499d-bf53-c33dc9f36347">
 </details>
 <details>
-   <summary><code>medium</code> (default)</summary>
-  <img width="974" alt="Screenshot 2024-04-21 at 4 04 09 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/9a77d1c3-2225-4c5e-94de-571b7068735f">
+    <summary><code>medium</code> (default)</summary>
+    <img width="974" alt="Screenshot 2024-04-21 at 4 04 09 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/9a77d1c3-2225-4c5e-94de-571b7068735f">
 </details>
 <details>
-   <summary><code>hard</code></summary>
-  <img width="974" alt="Screenshot 2024-04-21 at 4 04 43 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/89cf3ce1-1f23-427c-acea-a838671457ba">
+    <summary><code>hard</code></summary>
+    <img width="974" alt="Screenshot 2024-04-21 at 4 04 43 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/89cf3ce1-1f23-427c-acea-a838671457ba">
+</details>
+<details>
+    <summary><code>stark</code></summary>
+
+No screenshot available yet.
 
 </details>
 
 
 ## Screenshots
+
+All screenshots captured with `medium` contrast.
 
 <details>
    <summary>C</summary>
@@ -80,7 +87,7 @@ Three levels of contrast are available, set via the `contrast` option.
 </details>
 
 ## Terminal colors
-`term` mode colors within nvim should be set by the theme. For terminal emulator colorschemes, see `./extras`. Currently available is Alacritty, but other ports are welcome.
+`term` mode colors within nvim should be set by the theme. For terminal emulator colorschemes, see `./extras`. Currently available are themes for Alacritty and WezTerm, but other ports are welcome.
 
 ## Credits
 

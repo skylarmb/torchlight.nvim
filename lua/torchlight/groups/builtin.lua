@@ -6,6 +6,10 @@ function M.highlight(c, opts)
   local brightFg = c.fg_bright
   local cursorLineBg = c.bg1
 
+  if opts.contrast == 'stark' then
+    normalBg = c.bg_stark
+    cursorLineBg = c.bg_dim
+  end
   if opts.contrast == 'hard' then
     normalBg = c.bg_dim
     cursorLineBg = c.bg0
