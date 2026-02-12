@@ -1,0 +1,38 @@
+# Torchlight hard 
+background = #131312
+foreground = #E3CA9A
+selection-background = #E8D2A9
+selection-foreground = #1E1D1D
+cursor-color = #E3CA9A
+
+#: black
+palette = 0=#131312
+palette = 8=#575547
+
+#: red
+palette = 1=#D0654B
+palette = 9=#D0654B
+
+#: green
+palette = 2=#979764
+palette = 10=#979764
+
+#: yellow
+palette = 3=#E3A138
+palette = 11=#E3A138
+
+#: blue
+palette = 4=#848A68
+palette = 12=#848A68
+
+#: magenta
+palette = 5=#D97E4A
+palette = 13=#D97E4A
+
+#: cyan
+palette = 6=#799173
+palette = 14=#799173
+
+#: white
+palette = 7=#E3CA9A
+palette = 15=#E8D2A9
