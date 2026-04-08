@@ -3,6 +3,7 @@ return {
   require('torchlight.groups.treesitter'),
   require('torchlight.groups.lsp'),
 
+  require('torchlight.groups.avante'),
   require('torchlight.groups.dap'),
   require('torchlight.groups.dashboard'),
   require('torchlight.groups.git'),
