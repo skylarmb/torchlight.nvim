@@ -4,7 +4,7 @@ function M.highlight(c, opts)
   return {
     DiffAdd = { bg = c.green_dim },
     DiffChange = { bg = c.bg4 },
-    DiffDelete = { bg = c.bg_5, fg = c.red_bright },
+    DiffDelete = { bg = c.bg5, fg = c.red_bright },
     DiffText = { bg = c.bg_bright },
 
     GitSignsAdd = { bg = c.bg3, fg = c.green_dim },
@@ -26,8 +26,8 @@ function M.highlight(c, opts)
     GitSignsDeleteInline = { reverse = true },
     GitSignsDeleteLnInline = { reverse = true },
     GitSignsDeleteNr = { bg = c.bg3, fg = c.red_bright },
-    GitSignsDeletePreview = { bg = c.bg_5, fg = c.red_bright },
-    GitSignsDeleteVirtLn = { bg = c.bg_5, fg = c.red_bright },
+    GitSignsDeletePreview = { bg = c.bg5, fg = c.red_bright },
+    GitSignsDeleteVirtLn = { bg = c.bg5, fg = c.red_bright },
     GitSignsDeleteVirtLnInLine = { reverse = true },
     GitSignsStagedAdd = { bg = c.bg3, fg = c.green_dim },
     GitSignsStagedAddLn = { bg = c.grey0 },
@@ -47,7 +47,7 @@ function M.highlight(c, opts)
     GitSignsUntracked = { bg = c.bg3, fg = c.green_dim },
     GitSignsUntrackedLn = { bg = c.grey0 },
     GitSignsUntrackedNr = { bg = c.bg3, fg = c.green_dim },
-    GitSignsVirtLnum = { bg = c.bg_5, fg = c.red_bright },
+    GitSignsVirtLnum = { bg = c.bg5, fg = c.red_bright },
 
     diffAdded = { fg = c.green_dim },
     diffChanged = { fg = c.orange_dim },
@@ -56,10 +56,25 @@ function M.highlight(c, opts)
     diffOldFile = { fg = c.red },
     diffRemoved = { fg = c.red },
 
-    NeogitDiffAddHighlight = { bg = c.grey0 },
+    -- Neogit renders each diff in one of three states: the file under the
+    -- cursor uses the `*Highlight` groups, every other file uses the plain
+    -- groups, and the cursor line itself uses the `*Cursor` groups. Neogit
+    -- only defines a group the colorscheme left unset, and it derives the
+    -- plain groups from `DiffAdd`/`DiffDelete` above, which puts a green
+    -- foreground on a green background. Set all three states here.
+    NeogitDiffAdd = { bg = c.bg3, fg = c.green },
+    NeogitDiffAddCursor = { bg = c.grey0, fg = c.fg_bright },
+    NeogitDiffAddHighlight = { bg = c.grey0, fg = c.green },
+    NeogitDiffAddInline = { bg = c.green_dim, fg = c.fg_bright },
+    NeogitDiffContext = { bg = c.bg1 },
+    NeogitDiffContextCursor = { bg = c.bg4 },
     NeogitDiffContextHighlight = { bg = c.bg4 },
-    NeogitDiffDeleteHighlight = { bg = c.bg_5 },
+    NeogitDiffDelete = { bg = c.bg3, fg = c.red },
+    NeogitDiffDeleteCursor = { bg = c.bg5, fg = c.fg_bright },
+    NeogitDiffDeleteHighlight = { bg = c.bg5, fg = c.red_bright },
+    NeogitDiffDeleteInline = { bg = c.red_dim, fg = c.fg_bright },
     NeogitHunkHeader = { fg = c.green },
+    NeogitHunkHeaderCursor = { bg = c.bg4, fg = c.red },
     NeogitHunkHeaderHighlight = { bg = c.bg4, fg = c.red },
   }
 end

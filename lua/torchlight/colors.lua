@@ -7,6 +7,10 @@ local M = {
   bg3 = '#292827',
   bg4 = '#2D2C2B',
   bg5 = '#302F2E',
+  -- Emphasis background, painted on top of another background (DiffText over
+  -- DiffChange, LspReferenceWrite). Sits above the bg ladder so it stays
+  -- readable when stacked.
+  bg_bright = '#4C4A3E',
 
   fg0 = '#E3CA9A',
   fg1 = '#DCBB7E',

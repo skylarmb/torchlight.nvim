@@ -34,7 +34,7 @@ function M.highlight(c, opts)
     DapUIWinSelect = { bold = true, ctermfg = 14, fg = c.cyan },
 
     debugBreakpoint = { bg = c.bg4, fg = c.yellow },
-    debugPC = { bg = c.bg_5 },
+    debugPC = { bg = c.bg5 },
 
     DapUIBreakpointsDisabledLine = { link = 'Comment' },
     DapUIBreakpointsPath = { link = 'Directory' },

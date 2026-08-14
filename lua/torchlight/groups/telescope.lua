@@ -40,7 +40,7 @@ function M.highlight(c, opts)
     TelescopeResultsConstant = { fg = c.red },
     TelescopeResultsDiffAdd = { bg = c.grey0 },
     TelescopeResultsDiffChange = { bg = c.bg4 },
-    TelescopeResultsDiffDelete = { bg = c.bg_5, fg = c.red_bright },
+    TelescopeResultsDiffDelete = { bg = c.bg5, fg = c.red_bright },
     TelescopeResultsDiffUntracked = { fg = c.grey0 },
     TelescopeResultsField = { link = '@field' },
     TelescopeResultsFunction = { fg = c.green },

@@ -35,7 +35,7 @@ function M.highlight(c, opts)
     Error = { fg = c.red_bright },
     ErrorMsg = { fg = c.red_bright },
     Exception = { fg = c.red_bright },
-    ExtraWhitespace = { bg = c.bg_5, ctermbg = 9 },
+    ExtraWhitespace = { bg = c.bg5, ctermbg = 9 },
     FloatBorder = { bg = c.bg0, fg = c.fg1 },
     FloatShadow = { bg = '#000000', blend = 60 },
     FloatShadowThrough = { bg = '#000000', blend = 100 },
@@ -56,7 +56,7 @@ function M.highlight(c, opts)
     NormalDark = { bg = c.bg0, fg = c.fg_dim },
     NormalNC = { bg = cursorLineBg, fg = normalFg },
     Number = { fg = c.orange },
-    NvimInternalError = { bg = c.bg_5, ctermbg = 9, ctermfg = 9, fg = c.red_bright },
+    NvimInternalError = { bg = c.bg5, ctermbg = 9, ctermfg = 9, fg = c.red_bright },
     Operator = { fg = c.red },
     Pmenu = { bg = c.bg2, fg = normalFg },
     PmenuSbar = { bg = c.bg2, fg = c.fg_dim },
@@ -66,7 +66,7 @@ function M.highlight(c, opts)
     QuickFixLine = { bg = c.bg4 },
     RedrawDebugClear = { bg = c.bg5, ctermbg = 11 },
     RedrawDebugComposed = { bg = c.green_dim, ctermbg = 10 },
-    RedrawDebugRecompose = { bg = c.bg_5, ctermbg = 9 },
+    RedrawDebugRecompose = { bg = c.bg5, ctermbg = 9 },
     Search = { bg = c.grey0, fg = c.cyan },
     Special = { fg = c.yellow },
     SpecialKey = { fg = c.green },
@@ -83,7 +83,10 @@ function M.highlight(c, opts)
     Todo = { bg = c.bg5, bold = true, fg = c.cyan },
     Type = { fg = c.yellow },
     Underlined = { fg = c.yellow, underline = true },
-    Visual = { bg = c.grey0 },
+    -- Sits above the bg0-bg_bright ladder so a selection stays visible over
+    -- any highlighted region, including diff backgrounds. Do not reuse a
+    -- ladder color here: those double as line backgrounds.
+    Visual = { bg = c.grey1 },
     WarningMsg = { fg = c.orange },
     Whitespace = { fg = c.bg5 },
     WinBar = { fg = c.fg_dim },
