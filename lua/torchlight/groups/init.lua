@@ -16,6 +16,7 @@ return {
   require('torchlight.groups.nvim-cmp'),
   require('torchlight.groups.nvim-notify'),
   require('torchlight.groups.nvim-tree'),
+  require('torchlight.groups.snacks'),
   require('torchlight.groups.tabline'),
   require('torchlight.groups.telescope'),
 }
