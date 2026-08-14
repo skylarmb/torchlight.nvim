@@ -41,4 +41,11 @@ local M = {
   yellow_dim = '#D9923B',
 }
 
-return M
+-- A misspelled color name reads as nil, which nvim_set_hl accepts as "no
+-- color". The group then renders with no background and the typo is silent.
+-- Raise instead. Level 2 reports the caller's line, not this one.
+return setmetatable(M, {
+  __index = function(_, key)
+    error(string.format('unknown color: %s', tostring(key)), 2)
+  end,
+})

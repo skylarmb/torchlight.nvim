@@ -1,64 +1,52 @@
-name: Ci
+name: CI
 
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
+  check:
+    name: Lint and test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      # Report every platform's result, not just the first failure.
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@v3
-      - name: Stylua
-        uses: JohnnyMorganz/stylua-action@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          version: latest
-          args: --check .
+      - uses: actions/checkout@v4
 
+      # CI runs the same tool versions as the dev shell, so a green run
+      # locally means a green run here.
+      - uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: stylua
+        run: nix develop --command stylua --check .
+
+      - name: luacheck
+        run: nix develop --command luacheck .
+
+      - name: test
+        run: nix develop --command vusted ./test
 
   docs:
-    runs-on: ubuntu-latest
     name: pandoc to vimdoc
+    runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/main' }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: panvimdoc
         uses: kdheepak/panvimdoc@main
         with:
           vimdoc: torchlight
           treesitter: true
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore(doc): auto generate docs'
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "github-actions[bot]@users.noreply.github.com"
-          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
-
-  test:
-    name: Run Test
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    steps:
-      - uses: actions/checkout@v3
-      - uses: rhysd/action-setup-vim@v1
-        id: vim
-        with:
-          neovim: true
-          version: nightly
-
-      - name: luajit
-        uses: leafo/gh-actions-lua@v10
-        with:
-          luaVersion: "luajit-2.1.0-beta3"
-
-      - name: luarocks
-        uses: leafo/gh-actions-luarocks@v4
-
-      - name: run test
-        shell: bash
-        run: |
-          luarocks install luacheck
-          luarocks install vusted
-          vusted ./test
-ed ./test
+          commit_user_name: 'github-actions[bot]'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'

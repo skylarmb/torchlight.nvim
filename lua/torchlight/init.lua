@@ -1,11 +1,12 @@
 local M = {}
 
-function M.setup(opts)
+function M.setup(user_opts)
   local settings = require('torchlight.settings')
-  if opts then
-    settings.set(opts)
+  if user_opts then
+    settings.set(user_opts)
   end
 
+  -- Read back through settings so defaults are applied for absent keys.
   local opts = settings.opts
 
   vim.api.nvim_command('hi clear')
