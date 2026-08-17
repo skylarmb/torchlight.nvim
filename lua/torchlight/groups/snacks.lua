@@ -1,25 +1,23 @@
 local M = {}
 
 function M.highlight(c, opts)
+  -- Every pane of the picker takes one background: the input, the list, and
+  -- the preview. Only the selected row differs.
   local pickerBg = c.bg0
-  local pickerAltBg = c.bg2
   local cursorLineBg = c.bg4
 
   if opts.contrast == 'stark' then
     pickerBg = c.bg_stark
-    pickerAltBg = c.bg_dim
     cursorLineBg = c.bg2
   end
 
   if opts.contrast == 'hard' then
     pickerBg = c.bg_dim
-    pickerAltBg = c.bg0
     cursorLineBg = c.bg3
   end
 
   if opts.contrast == 'soft' then
     pickerBg = c.bg2
-    pickerAltBg = c.bg3
     cursorLineBg = c.bg5
   end
 
@@ -37,8 +35,8 @@ function M.highlight(c, opts)
     SnacksPickerSpinner = { fg = c.yellow },
     SnacksPickerTotals = { fg = c.grey2 },
 
-    SnacksPickerList = { bg = pickerAltBg, fg = c.fg0 },
-    SnacksPickerListBorder = { bg = pickerAltBg },
+    SnacksPickerList = { bg = pickerBg, fg = c.fg0 },
+    SnacksPickerListBorder = { bg = pickerBg },
     SnacksPickerListTitle = { link = 'SnacksPickerTitle' },
     SnacksPickerListCursorLine = { bg = cursorLineBg },
 
