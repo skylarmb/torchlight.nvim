@@ -1,62 +1,113 @@
-*nvim-plugin-template.txt*     For NVIM v0.8.0     Last change: 2023 August 05
+*torchlight.txt*                       A cozy colorscheme for Neovim
 
 ==============================================================================
-Table of Contents                     *nvim-plugin-template-table-of-contents*
+CONTENTS                                              *torchlight-contents*
 
-1. nvim-plugin-template            |nvim-plugin-template-nvim-plugin-template|
-  - Usage                    |nvim-plugin-template-nvim-plugin-template-usage|
-  - Format                  |nvim-plugin-template-nvim-plugin-template-format|
-  - Test                      |nvim-plugin-template-nvim-plugin-template-test|
-  - Ci                          |nvim-plugin-template-nvim-plugin-template-ci|
-  - More                      |nvim-plugin-template-nvim-plugin-template-more|
-  - License MIT        |nvim-plugin-template-nvim-plugin-template-license-mit|
+  1. Introduction ................................ |torchlight-introduction|
+  2. Requirements ................................ |torchlight-requirements|
+  3. Setup ............................................. |torchlight-setup|
+  4. Contrast ....................................... |torchlight-contrast|
+  5. Plugin support ........................... |torchlight-plugin-support|
+  6. Terminal colors ......................... |torchlight-terminal-colors|
+  7. Ports ............................................. |torchlight-ports|
+  8. Issues ........................................... |torchlight-issues|
 
 ==============================================================================
-1. nvim-plugin-template            *nvim-plugin-template-nvim-plugin-template*
+1. INTRODUCTION                                   *torchlight-introduction*
 
-neovim plugin template integration test and doc publish
+Torchlight is a dark colorscheme for Neovim. It takes its palette from the
+painting "Fishing by Torchlight in Kai Province" by Katsushika Hokusai.
 
+The palette holds few blue hues. This keeps the colorscheme easy on the eyes
+at night.
 
-USAGE                        *nvim-plugin-template-nvim-plugin-template-usage*
+==============================================================================
+2. REQUIREMENTS                                   *torchlight-requirements*
 
-1. click `use this template` button generate a repo on your github.
-2. clone your plugin repo.open terminal then cd plugin directory.
-3. run `python3 rename.py your-plugin-name` this will replace all `nvim-plugin-template` to your `pluing-name`.
-then it will prompt you input `y` or `n` to remove example codes in `init.lua` and
-`test/plugin_spec.lua`. if you are familiar this repo just input y. if you are first look at this
-template I suggest you look at them first. after these step the `rename.py` will also auto
-remove.
+- Neovim 0.8.0 or later.
+- A terminal with true color support.
 
-now you have a clean plugin env. enjoy!
+Torchlight sets 'termguicolors' when it loads.
 
+==============================================================================
+3. SETUP                                                 *torchlight-setup*
 
-FORMAT                      *nvim-plugin-template-nvim-plugin-template-format*
+                                                       *torchlight.setup()*
+Install the plugin, then call `setup()`. With lazy.nvim: >lua
 
-format use `stylua` and provide `.stylua.toml`.
+    {
+      "skylarmb/torchlight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {
+        contrast = "medium",
+      },
+    }
+<
+Load the colorscheme by hand with either form: >lua
 
+    require("torchlight").setup({ contrast = "medium" })
+<
+>vim
+    colorscheme torchlight
+<
+`:colorscheme torchlight` keeps the options from an earlier `setup()` call.
+Call `setup()` first when you want a contrast level other than the default.
 
-TEST                          *nvim-plugin-template-nvim-plugin-template-test*
+Options ~
 
-use vusted for test install by using `luarocks --lua-version=5.1 install
-vusted` then run `vusted test` for your test cases.
+                                                        *torchlight-options*
+contrast                            string    default: "medium"
+    The background contrast level. See |torchlight-contrast|.
 
-create test case in test folder file rule is `foo_spec.lua` with `_spec` more
-usage please check busted usage <https://lunarmodules.github.io/busted/>
+==============================================================================
+4. CONTRAST                                           *torchlight-contrast*
 
+The `contrast` option sets how dark the background is. It accepts four
+values. The foreground colors do not change.
 
-CI                              *nvim-plugin-template-nvim-plugin-template-ci*
+    Value       Background      Description ~
+    "soft"      #252424         The lightest background.
+    "medium"    #1E1D1D         The default.
+    "hard"      #131312         A darker background.
+    "stark"     #0d0d0d         The darkest background, close to black.
 
-Ci support auto generate doc from README and integration test and lint check by
-`stylua`.
+Example: >lua
 
+    require("torchlight").setup({ contrast = "hard" })
+<
+==============================================================================
+5. PLUGIN SUPPORT                               *torchlight-plugin-support*
 
-MORE                          *nvim-plugin-template-nvim-plugin-template-more*
+Torchlight sets highlight groups for these plugins:
 
-Other usage you can look at my plugins
+    avante.nvim         gitsigns.nvim       nvim-cmp
+    dashboard-nvim      lazy.nvim           nvim-dap-ui
+    neo-tree.nvim       lualine.nvim        nvim-notify
+    neogit              nvim-tree           nvim-treesitter
+    snacks.nvim         telescope.nvim
 
+Plugins that are absent from this list still work. They use the default
+highlight groups.
 
-LICENSE MIT            *nvim-plugin-template-nvim-plugin-template-license-mit*
+==============================================================================
+6. TERMINAL COLORS                             *torchlight-terminal-colors*
 
-Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
+Torchlight sets `g:terminal_color_0` through `g:terminal_color_15`. The
+built-in terminal uses the palette of the colorscheme.
+
+==============================================================================
+7. PORTS                                                 *torchlight-ports*
+
+The `extras` folder in the repository holds the palette for other tools.
+Ports cover Alacritty, Ghostty, WezTerm, and Zed. Each terminal port has one
+file per contrast level.
+
+==============================================================================
+8. ISSUES                                               *torchlight-issues*
+
+Report a plugin that looks wrong under this colorscheme:
+
+    https://github.com/skylarmb/torchlight.nvim/issues
 
 vim:tw=78:ts=8:noet:ft=help:norl:
