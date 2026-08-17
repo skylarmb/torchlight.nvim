@@ -34,3 +34,7 @@ yellow = "#E3A138"
 background = "#131312"
 bright_foreground = "#E8D2A9"
 foreground = "#E3CA9A"
+
+[colors.selection]
+background = "#E8D2A9"
+text = "#1E1D1D"
