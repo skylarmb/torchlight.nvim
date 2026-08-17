@@ -106,30 +106,36 @@ describe('torchlight', function()
     end)
 
     -- A selection painted the same color as the line under it is invisible.
-    -- Visual must stay clear of every background it can be drawn over.
-    it('keeps Visual distinct from diff backgrounds', function()
-      local visual = get_hl('Visual').bg
-      local clashes = {}
-      for _, name in ipairs({
-        'NeogitDiffAdd',
-        'NeogitDiffAddHighlight',
-        'NeogitDiffAddCursor',
-        'NeogitDiffDelete',
-        'NeogitDiffDeleteHighlight',
-        'NeogitDiffContext',
-        'NeogitDiffContextHighlight',
-        'GitSignsAddLn',
-        'GitSignsAddPreview',
-        'DiffAdd',
-        'DiffChange',
-        'DiffDelete',
-        'CursorLine',
-      }) do
-        if get_hl(name).bg == visual then
-          table.insert(clashes, name)
+    -- Visual must stay clear of every background it can be drawn over. The
+    -- value changes per contrast level, so check each level.
+    for _, contrast in ipairs(CONTRASTS) do
+      it('keeps Visual distinct from diff backgrounds at contrast=' .. contrast, function()
+        require('torchlight').setup({ contrast = contrast })
+        local visual = get_hl('Visual').bg
+        local clashes = {}
+        for _, name in ipairs({
+          'NeogitDiffAdd',
+          'NeogitDiffAddHighlight',
+          'NeogitDiffAddCursor',
+          'NeogitDiffDelete',
+          'NeogitDiffDeleteHighlight',
+          'NeogitDiffContext',
+          'NeogitDiffContextHighlight',
+          'GitSignsAddLn',
+          'GitSignsAddPreview',
+          'DiffAdd',
+          'DiffChange',
+          'DiffDelete',
+          'DiffText',
+          'CursorLine',
+          'Normal',
+        }) do
+          if get_hl(name).bg == visual then
+            table.insert(clashes, name)
+          end
         end
-      end
-      assert.same({}, clashes)
-    end)
+        assert.same({}, clashes)
+      end)
+    end
   end)
 end)
