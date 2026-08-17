@@ -30,7 +30,7 @@ function M.highlight(c, opts)
     SnacksPickerFooter = { fg = c.grey2 },
 
     SnacksPickerInput = { bg = pickerBg, fg = c.fg0 },
-    SnacksPickerInputBorder = { bg = pickerBg, fg = pickerBg },
+    SnacksPickerInputBorder = { bg = pickerBg },
     SnacksPickerInputTitle = { link = 'SnacksPickerTitle' },
     SnacksPickerPrompt = { fg = c.fg1 },
     SnacksPickerInputSearch = { fg = c.yellow },
@@ -38,12 +38,12 @@ function M.highlight(c, opts)
     SnacksPickerTotals = { fg = c.grey2 },
 
     SnacksPickerList = { bg = pickerAltBg, fg = c.fg0 },
-    SnacksPickerListBorder = { bg = pickerAltBg, fg = pickerAltBg },
+    SnacksPickerListBorder = { bg = pickerAltBg },
     SnacksPickerListTitle = { link = 'SnacksPickerTitle' },
     SnacksPickerListCursorLine = { bg = cursorLineBg },
 
     SnacksPickerPreview = { bg = pickerBg, fg = c.fg0 },
-    SnacksPickerPreviewBorder = { bg = pickerBg, fg = pickerBg },
+    SnacksPickerPreviewBorder = { bg = pickerBg },
     SnacksPickerPreviewTitle = { link = 'SnacksPickerTitle' },
     SnacksPickerPreviewCursorLine = { bg = c.bg3 },
 

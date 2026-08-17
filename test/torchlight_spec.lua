@@ -1,17 +1,5 @@
 local CONTRASTS = { 'soft', 'medium', 'hard', 'stark' }
 
--- These groups set fg to bg on purpose, to hide the characters they cover.
--- Float borders become seamless blocks. Anything added here must be a
--- deliberate choice, not an oversight.
-local HIDDEN_BY_DESIGN = {
-  SnacksPickerInputBorder = true,
-  SnacksPickerListBorder = true,
-  SnacksPickerPreviewBorder = true,
-  TelescopePreviewBorder = true,
-  TelescopePromptBorder = true,
-  TelescopeResultsBorder = true,
-}
-
 --- Resolve a group to its final attributes, following any link.
 local function get_hl(name)
   return vim.api.nvim_get_hl(0, { name = name, link = false })
@@ -73,18 +61,23 @@ describe('torchlight', function()
 
     -- A group whose text matches its own background is unreadable. This is
     -- the defect reported in issue #2, where neogit derived NeogitDiffAdd
-    -- from DiffAdd and landed on green-on-green.
-    it('never sets fg equal to bg', function()
-      local offenders = {}
-      for _, name in ipairs(defined_groups('medium')) do
-        local hl = get_hl(name)
-        if hl.fg and hl.bg and hl.fg == hl.bg and not HIDDEN_BY_DESIGN[name] then
-          table.insert(offenders, string.format('%s (#%06X)', name, hl.fg))
+    -- from DiffAdd and landed on green-on-green. The picker border groups
+    -- hit the same defect and hid their own box-drawing characters. The
+    -- theme has no legitimate use for fg equal to bg, so allow no exception.
+    for _, contrast in ipairs(CONTRASTS) do
+      it('never sets fg equal to bg at contrast=' .. contrast, function()
+        require('torchlight').setup({ contrast = contrast })
+        local offenders = {}
+        for _, name in ipairs(defined_groups(contrast)) do
+          local hl = get_hl(name)
+          if hl.fg and hl.bg and hl.fg == hl.bg then
+            table.insert(offenders, string.format('%s (#%06X)', name, hl.fg))
+          end
         end
-      end
-      table.sort(offenders)
-      assert.same({}, offenders)
-    end)
+        table.sort(offenders)
+        assert.same({}, offenders)
+      end)
+    end
 
     -- Neogit only defines a highlight group the colorscheme left unset, and
     -- it derives the missing ones from DiffAdd/DiffDelete. Define all three
