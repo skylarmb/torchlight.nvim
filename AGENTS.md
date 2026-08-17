@@ -80,7 +80,9 @@ means a green run in CI.
    add a color or a fix for it. Do not delete it either. Point a user who asks
    about `soft` at `medium`.
 4. `Visual` must differ from every background it covers. A selection that
-   matches the line under it is invisible.
+   matches the line under it is invisible. It does not have to be brighter than
+   those backgrounds. `Visual` changes per contrast level, because a value that
+   suits `soft` glares against the floor of `stark`.
 
 ## Colors
 
@@ -89,11 +91,13 @@ means a green run in CI.
 The `bg0` to `bg5` ladder packs closely, from `#1E1D1D` to `#302F2E`. These are
 line and pane backgrounds. Two of them next to each other read as one color.
 
-`grey0`, `grey1`, and `bg_bright` sit above that ladder. These are selection,
-search, and emphasis backgrounds. They paint on top of a ladder color, so they
-must stay far from it.
+`bg_select`, `grey0`, `grey1`, and `bg_bright` sit above that ladder. These are
+selection, search, and emphasis backgrounds. They paint on top of a ladder
+color, so they must stay far from it.
 
-Do not give a ladder color to a group that paints over another background.
+Do not give a ladder color to a group that paints over another background. The
+one exception is `Visual` at the stark level, where the whole ladder sits above
+the background floor.
 
 ## Ports
 

@@ -5,14 +5,17 @@ function M.highlight(c, opts)
   local normalFg = c.fg0
   local brightFg = c.fg_bright
   local cursorLineBg = c.bg1
+  local visualBg = c.grey1
 
   if opts.contrast == 'stark' then
     normalBg = c.bg_stark
     cursorLineBg = c.bg_dim
+    visualBg = c.bg2
   end
   if opts.contrast == 'hard' then
     normalBg = c.bg_dim
     cursorLineBg = c.bg0
+    visualBg = c.bg_select
   end
   if opts.contrast == 'soft' then
     normalBg = c.bg2
@@ -83,10 +86,12 @@ function M.highlight(c, opts)
     Todo = { bg = c.bg5, bold = true, fg = c.cyan },
     Type = { fg = c.yellow },
     Underlined = { fg = c.yellow, underline = true },
-    -- Sits above the bg0-bg_bright ladder so a selection stays visible over
-    -- any highlighted region, including diff backgrounds. Do not reuse a
-    -- ladder color here: those double as line backgrounds.
-    Visual = { bg = c.grey1 },
+    -- A selection must differ from every background it covers, including the
+    -- diff backgrounds. It does not have to be brighter than them: a dark
+    -- band over a light diff line reads as a selection just as well. The dark
+    -- levels put Normal far below grey1, which made the selection glare, so
+    -- they take a value near their own floor instead.
+    Visual = { bg = visualBg },
     WarningMsg = { fg = c.orange },
     Whitespace = { fg = c.bg5 },
     WinBar = { fg = c.fg_dim },

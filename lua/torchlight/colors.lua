@@ -7,6 +7,10 @@ local M = {
   bg3 = '#292827',
   bg4 = '#2D2C2B',
   bg5 = '#302F2E',
+  -- Selection background for the dark contrast levels. It sits in the gap
+  -- between bg5 and grey0, which the diff groups leave free, so a selection
+  -- never matches the line under it.
+  bg_select = '#393830',
   -- Emphasis background, painted on top of another background (DiffText over
   -- DiffChange, LspReferenceWrite). Sits above the bg ladder so it stays
   -- readable when stacked.
