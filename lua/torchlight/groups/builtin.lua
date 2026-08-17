@@ -109,7 +109,10 @@ function M.highlight(c, opts)
     CursorIM = { link = 'Cursor' },
     FoldColumn = { link = 'LineNr' },
     Ignore = { link = 'NonText' },
-    IncSearch = { bg = c.grey1, fg = c.yellow_bright },
+    -- The current match, so it must outrank Search (grey0) and must not
+    -- match Visual at any contrast level. bg_bright is the emphasis color
+    -- and sits above both.
+    IncSearch = { bg = c.bg_bright, fg = c.yellow_bright },
     CurSearch = { link = 'IncSearch' },
     Italic = { italic = true },
   }

@@ -129,6 +129,8 @@ describe('torchlight', function()
           'DiffText',
           'CursorLine',
           'Normal',
+          'Search',
+          'IncSearch',
         }) do
           if get_hl(name).bg == visual then
             table.insert(clashes, name)
