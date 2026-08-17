@@ -34,21 +34,19 @@ Four levels of contrast are available, set via the `contrast` option.
 
 <details>
     <summary><code>soft</code></summary>
-    <img width="974" alt="Screenshot 2024-04-21 at 4 03 44 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/19d8dd62-73c6-499d-bf53-c33dc9f36347">
+<img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 39 11 AM" src="https://github.com/user-attachments/assets/87360dc7-e526-48c7-a269-a10caeb9e0ff" />
 </details>
 <details>
     <summary><code>medium</code> (default)</summary>
-    <img width="974" alt="Screenshot 2024-04-21 at 4 04 09 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/9a77d1c3-2225-4c5e-94de-571b7068735f">
+<img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 39 41 AM" src="https://github.com/user-attachments/assets/219fe850-ca77-404e-a1a3-353d2987efc5" />
 </details>
 <details>
     <summary><code>hard</code></summary>
-    <img width="974" alt="Screenshot 2024-04-21 at 4 04 43 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/89cf3ce1-1f23-427c-acea-a838671457ba">
+<img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 40 04 AM" src="https://github.com/user-attachments/assets/279b164a-297c-47c1-a58a-62728d774241" />
 </details>
 <details>
     <summary><code>stark</code></summary>
-
-No screenshot available yet.
-
+<img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 41 54 AM" src="https://github.com/user-attachments/assets/6208e816-8eb7-42cc-a75c-029095b2e9b8" />
 </details>
 
 
