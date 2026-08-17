@@ -39,6 +39,16 @@ describe('torchlight', function()
         vim.cmd.colorscheme('torchlight')
       end)
     end)
+
+    -- setup() with no options must resolve to the documented default. This
+    -- also fixes the background that vimcolorschemes.com renders, because
+    -- its extractor runs a bare `:colorscheme torchlight`.
+    it('defaults to hard contrast', function()
+      require('torchlight.settings').set({})
+      require('torchlight').setup()
+      assert.equals('hard', require('torchlight.settings').opts.contrast)
+      assert.equals(0x131312, get_hl('Normal').bg)
+    end)
   end)
 
   describe('palette', function()

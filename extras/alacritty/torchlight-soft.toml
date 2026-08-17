@@ -1,5 +1,9 @@
 # Torchlight soft theme for Alacritty
 # Features a lighter background for reduced contrast
+#
+# Deprecated. This variant still works, but it is no longer maintained.
+# New colors and fixes do not reach it. Use torchlight.toml for the closest
+# supported background.
 [colors.bright]
 black = "#575547"
 white = "#E8D2A9"

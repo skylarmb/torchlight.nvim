@@ -7,6 +7,7 @@ torchlight-plugin-support	torchlight.txt	/*torchlight-plugin-support*
 torchlight-ports	torchlight.txt	/*torchlight-ports*
 torchlight-requirements	torchlight.txt	/*torchlight-requirements*
 torchlight-setup	torchlight.txt	/*torchlight-setup*
+torchlight-soft	torchlight.txt	/*torchlight-soft*
 torchlight-terminal-colors	torchlight.txt	/*torchlight-terminal-colors*
 torchlight.setup()	torchlight.txt	/*torchlight.setup()*
 torchlight.txt	torchlight.txt	/*torchlight.txt*

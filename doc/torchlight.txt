@@ -57,7 +57,7 @@ Call `setup()` first when you want a contrast level other than the default.
 Options ~
 
                                                         *torchlight-options*
-contrast                            string    default: "medium"
+contrast                            string    default: "hard"
     The background contrast level. See |torchlight-contrast|.
 
 ==============================================================================
@@ -67,15 +67,22 @@ The `contrast` option sets how dark the background is. It accepts four
 values. The foreground colors do not change.
 
     Value       Background      Description ~
-    "soft"      #252424         The lightest background.
-    "medium"    #1E1D1D         The default.
-    "hard"      #131312         A darker background.
+    "medium"    #1E1D1D         The lightest supported background.
+    "hard"      #131312         The default.
     "stark"     #0d0d0d         The darkest background, close to black.
+    "soft"      #252424         Deprecated. See below.
 
 Example: >lua
 
-    require("torchlight").setup({ contrast = "hard" })
+    require("torchlight").setup({ contrast = "stark" })
 <
+                                                     *torchlight-soft*
+The "soft" value is deprecated. It still works, and it will keep working.
+It is no longer maintained. New colors and fixes do not reach it. Use
+"medium" for the closest supported background.
+
+The ports in `extras` follow the same rule. Each soft port file carries a
+note at the top.
 ==============================================================================
 5. PLUGIN SUPPORT                               *torchlight-plugin-support*
 

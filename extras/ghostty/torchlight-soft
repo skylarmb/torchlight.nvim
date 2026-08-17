@@ -1,4 +1,8 @@
 # Torchlight soft
+#
+# Deprecated. This variant still works, but it is no longer maintained.
+# New colors and fixes do not reach it. Use the unsuffixed torchlight file
+# for the closest supported background.
 background = #252424
 foreground = #E3CA9A
 selection-background = #E8D2A9
