@@ -8,9 +8,9 @@ This colorscheme adopts the natural pallette of "Fishing by Torchlight in Kai Pr
 
 ## Plugin support
 
-A few common plugins are supported including `nvim-treesitter`, `lualine.nvim`, `nvim-tree`, etc. See [lua/torchlight/groups](https://github.com/skylarmb/torchlight.nvim/tree/main/lua/torchlight/groups) for a more complete list.
+Supported plugins include `nvim-treesitter`, `lualine.nvim`, `nvim-tree`, `neo-tree.nvim`, `telescope.nvim`, `nvim-cmp`, `nvim-notify`, `lazy.nvim`, `gitsigns.nvim`, `neogit`, `nvim-dap-ui`, `dashboard-nvim`, `avante.nvim`, and `snacks.nvim`. Many more will work just fine with the default highlight groups. See [lua/torchlight/groups](https://github.com/skylarmb/torchlight.nvim/tree/main/lua/torchlight/groups) for the plugin-specific highlight definitions.
 
-PRs welcome to add support for more plugins.
+If you use a plugin that is not supported or looks incorrect when using this colorscheme, please [open an issue](https://github.com/skylarmb/torchlight.nvim/issues) or [pull request](https://github.com/skylarmb/torchlight.nvim/pulls).
 
 ## Usage
 
@@ -84,8 +84,9 @@ All screenshots captured with `medium` contrast.
 
 </details>
 
-## Terminal colors
-`term` mode colors within nvim should be set by the theme. For terminal emulator colorschemes, see `./extras`. Currently available are themes for Alacritty and WezTerm, but other ports are welcome.
+## Extras / ports
+
+The `./extras` folder holds ports of the palette for other tools. Current ports cover Alacritty, WezTerm, Ghostty, and Zed. Other ports are welcome.
 
 ## Credits
 
