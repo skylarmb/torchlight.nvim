@@ -2,10 +2,10 @@
 -- Uncomment one of the background options below to set contrast level
 
 -- Contrast levels (uncomment one):
-local bg = '#1E1D1D' -- medium (default)
--- local bg = "#252424"  -- soft
--- local bg = "#131312"  -- hard
+local bg = '#131312' -- hard (default)
+-- local bg = "#1E1D1D"  -- medium
 -- local bg = "#0d0d0d"  -- stark
+-- local bg = "#252424"  -- soft (deprecated, no longer maintained)
 
 local fg = '#E3CA9A'
 -- local fg = "#E8D2A9"  -- alternative foreground (brighter)

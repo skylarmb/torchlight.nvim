@@ -1,7 +1,7 @@
 local M = {}
 
 local DEFAULT = {
-  contrast = 'medium',
+  contrast = 'hard',
 }
 
 M.opts = {}

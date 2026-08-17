@@ -22,7 +22,7 @@ Install using your favorite plugin manager, e.g. `lazy.nvim`
     lazy = false,
     priority = 1000,
     opts = {
-      contrast = "medium", -- possible values: soft, medium, hard, stark
+      contrast = "hard", -- possible values: medium, hard, stark (soft is deprecated)
     },
   },
 
@@ -30,18 +30,20 @@ Install using your favorite plugin manager, e.g. `lazy.nvim`
 
 ## Contrast
 
-Four levels of contrast are available, set via the `contrast` option.
+Four levels of contrast are available, set via the `contrast` option. `hard` is the default.
+
+`soft` is deprecated. It still works and will keep working, but it is no longer maintained. New colors and fixes are not applied to it. Use `medium` for the closest supported look.
 
 <details>
-    <summary><code>soft</code></summary>
+    <summary><code>soft</code> (deprecated, unmaintained)</summary>
 <img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 39 11 AM" src="https://github.com/user-attachments/assets/87360dc7-e526-48c7-a269-a10caeb9e0ff" />
 </details>
 <details>
-    <summary><code>medium</code> (default)</summary>
+    <summary><code>medium</code></summary>
 <img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 39 41 AM" src="https://github.com/user-attachments/assets/219fe850-ca77-404e-a1a3-353d2987efc5" />
 </details>
 <details>
-    <summary><code>hard</code></summary>
+    <summary><code>hard</code> (default)</summary>
 <img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 40 04 AM" src="https://github.com/user-attachments/assets/279b164a-297c-47c1-a58a-62728d774241" />
 </details>
 <details>

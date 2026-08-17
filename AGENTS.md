@@ -73,7 +73,12 @@ means a green run in CI.
    its own background color, and the text disappears. To hide a character,
    choose a background that differs from the text color.
 3. The theme loads under all four contrast levels: soft, medium, hard, and
-   stark. Read `opts.contrast` when a group needs a different color per level.
+   stark. `hard` is the default. Read `opts.contrast` when a group needs a
+   different color per level.
+
+   `soft` is deprecated. It still loads, and the tests still cover it. Do not
+   add a color or a fix for it. Do not delete it either. Point a user who asks
+   about `soft` at `medium`.
 4. `Visual` must differ from every background it covers. A selection that
    matches the line under it is invisible.
 
