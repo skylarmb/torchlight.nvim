@@ -32,7 +32,10 @@ function M.highlight(c, opts)
     Cursor = { bg = brightFg, fg = c.bg1 },
     CursorLine = { bg = cursorLineBg },
     CursorLineNr = { bg = cursorLineBg, bold = true, fg = c.yellow },
-    Delimiter = { fg = c.fg1 },
+    -- Legacy syntax groups only surface where treesitter is off. Keep them in
+    -- step with the treesitter captures for the same tokens: both
+    -- @punctuation.bracket and @punctuation.delimiter sit on fg_dim.
+    Delimiter = { fg = c.fg_dim },
     Directory = { fg = c.green },
     EndOfBuffer = { fg = c.bg1 },
     Error = { fg = c.red_bright },
@@ -77,7 +80,7 @@ function M.highlight(c, opts)
     SpellCap = { sp = c.orange, undercurl = true },
     SpellLocal = { sp = c.orange, undercurl = true },
     SpellRare = { sp = c.orange, undercurl = true },
-    Statement = { bold = true, fg = c.yellow_bright },
+    Statement = { fg = c.orange },
     StatusLine = { bg = c.bg0, fg = c.fg_dim },
     StatusLineNC = { bg = c.bg0, fg = c.grey0 },
     String = { fg = c.green, italic = true },
