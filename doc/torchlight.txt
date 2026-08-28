@@ -41,8 +41,8 @@ Install the plugin, then call `setup()`. With lazy.nvim: >lua
       lazy = false,
       priority = 1000,
       opts = {
-        contrast = "medium",
-        palette = "dusk",
+        contrast = "hard", -- available: soft, medium, hard, stark
+        palette = "torchlight", -- available: dusk, torchlight, dawn
       },
     }
 <
@@ -55,11 +55,16 @@ affected either way. >lua
       "skylarmb/torchlight.nvim",
       lazy = false,
       priority = 1000,
-      opts = { contrast = "medium" },
+      opts = {
+        contrast = "hard", -- available: soft, medium, hard, stark
+      },
     },
     {
       "LazyVim/LazyVim",
-      opts = { colorscheme = "torchlight-dusk" },
+      opts = {
+        -- available: torchlight-dusk, torchlight, torchlight-dawn
+        colorscheme = "torchlight",
+      },
     }
 <
 With pckr.nvim: >lua
@@ -69,8 +74,8 @@ With pckr.nvim: >lua
         "skylarmb/torchlight.nvim",
         config = function()
           require("torchlight").setup({
-            contrast = "medium",
-            palette = "dusk",
+            contrast = "hard", -- available: soft, medium, hard, stark
+            palette = "torchlight", -- available: dusk, torchlight, dawn
           })
         end,
       },
@@ -78,7 +83,10 @@ With pckr.nvim: >lua
 <
 Load the colorscheme by hand with either form: >lua
 
-    require("torchlight").setup({ contrast = "medium" })
+    require("torchlight").setup({
+      contrast = "hard", -- available: soft, medium, hard, stark
+      palette = "torchlight", -- available: dusk, torchlight, dawn
+    })
 <
 >vim
     colorscheme torchlight

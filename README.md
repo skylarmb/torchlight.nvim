@@ -23,8 +23,8 @@ palettes and [Contrast](#contrast) for the contrast levels.
     lazy = false,
     priority = 1000,
     opts = {
-      contrast = "hard", -- possible values: medium, hard, stark (soft is deprecated)
-      palette = "torchlight", -- possible values: torchlight, dusk, dawn
+      contrast = "hard", -- available: soft, medium, hard, stark
+      palette = "torchlight", -- available: dusk, torchlight, dawn
     },
   },
 ```
@@ -44,13 +44,13 @@ affected either way.
     lazy = false,
     priority = 1000,
     opts = {
-      contrast = "hard",
+      contrast = "hard", -- available: soft, medium, hard, stark
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "torchlight-dusk", -- or torchlight, torchlight-dawn
+      colorscheme = "torchlight", -- available: torchlight-dusk, torchlight, torchlight-dawn
     },
   },
 ```
@@ -66,8 +66,8 @@ affected either way.
       "skylarmb/torchlight.nvim",
       config = function()
         require("torchlight").setup({
-          contrast = "hard",
-          palette = "torchlight", -- or dusk, dawn
+          contrast = "hard", -- available: soft, medium, hard, stark
+          palette = "torchlight", -- available: dusk, torchlight, dawn
         })
       end,
     },
