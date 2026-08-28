@@ -16,10 +16,12 @@ function M.setup(user_opts)
 
   vim.o.background = 'dark'
   vim.o.termguicolors = true
-  vim.g.colors_name = 'torchlight'
+  -- The default palette keeps the bare name, so existing config and any
+  -- plugin that switches on colors_name is unaffected.
+  vim.g.colors_name = opts.palette == 'torchlight' and 'torchlight' or 'torchlight-' .. opts.palette
 
   local util = require('torchlight.util')
-  local colors = require('torchlight.colors')
+  local colors = require('torchlight.palettes').get(opts.palette)
   local groups = require('torchlight.groups')
 
   for _, group in ipairs(groups) do
