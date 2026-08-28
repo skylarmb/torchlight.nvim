@@ -109,57 +109,17 @@ Four levels of contrast are available, set via the `contrast` option. `hard` is 
 
 `soft` is deprecated. It still works and will keep working, but it is no longer maintained. New colors and fixes are not applied to it. Use `medium` for the closest supported look.
 
-<details>
-    <summary><code>soft</code> (deprecated, unmaintained)</summary>
-<img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 39 11 AM" src="https://github.com/user-attachments/assets/87360dc7-e526-48c7-a269-a10caeb9e0ff" />
-</details>
-<details>
-    <summary><code>medium</code></summary>
-<img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 39 41 AM" src="https://github.com/user-attachments/assets/219fe850-ca77-404e-a1a3-353d2987efc5" />
-</details>
-<details>
-    <summary><code>hard</code> (default)</summary>
-<img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 40 04 AM" src="https://github.com/user-attachments/assets/279b164a-297c-47c1-a58a-62728d774241" />
-</details>
-<details>
-    <summary><code>stark</code></summary>
-<img width="1374" height="1149" alt="Screenshot 2026-08-17 at 11 41 54 AM" src="https://github.com/user-attachments/assets/6208e816-8eb7-42cc-a75c-029095b2e9b8" />
-</details>
-
-
 ## Screenshots
 
-All screenshots captured with `medium` contrast.
+Palettes run light to dark left to right, contrast levels light to dark top to
+bottom.
 
-<details>
-   <summary>C</summary>
-<img width="988" alt="Screenshot 2024-04-21 at 2 17 09 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/b088e0b3-d491-43ee-b4cf-78d1671d7165">
-
-</details>
-
-<details>
-   <summary>Python</summary>
-<img width="988" alt="Screenshot 2024-04-21 at 2 16 51 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/11c5a875-e60a-465d-9cf0-07f97756cf75">
-
-</details>
-
-<details>
-   <summary>Go</summary>
-<img width="988" alt="Screenshot 2024-04-21 at 2 17 42 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/74ffdc7a-efeb-49af-901e-96832d0696c9">
-
-</details>
-
-<details>
-   <summary>Rust</summary>
-  <img width="988" alt="Screenshot 2024-04-21 at 2 18 28 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/8f333426-3860-4252-88f4-8256de319f2f">
-
-</details>
-
-<details>
-   <summary>Lua</summary>
-   <img width="988" alt="Screenshot 2024-04-21 at 2 21 55 PM" src="https://github.com/skylarmb/torchlight.nvim/assets/7543705/350ced2a-cf94-4781-a8a4-5785ad79bcfa">
-
-</details>
+|                     | `dawn`        | `torchlight`        | `dusk`        |
+| ------------------- | ------------- | ------------------- | ------------- |
+| `soft` (deprecated) | dawn soft     | torchlight soft     | dusk soft     |
+| `medium`            | dawn medium   | torchlight medium   | dusk medium   |
+| `hard` (default)    | dawn hard     | torchlight hard     | dusk hard     |
+| `stark`             | dawn stark    | torchlight stark    | dusk stark    |
 
 ## Extras / ports
 
