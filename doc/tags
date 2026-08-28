@@ -9,5 +9,6 @@ torchlight-requirements	torchlight.txt	/*torchlight-requirements*
 torchlight-setup	torchlight.txt	/*torchlight-setup*
 torchlight-soft	torchlight.txt	/*torchlight-soft*
 torchlight-terminal-colors	torchlight.txt	/*torchlight-terminal-colors*
+torchlight-variants	torchlight.txt	/*torchlight-variants*
 torchlight.setup()	torchlight.txt	/*torchlight.setup()*
 torchlight.txt	torchlight.txt	/*torchlight.txt*

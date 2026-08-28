@@ -1,4 +1,5 @@
 local CONTRASTS = { 'soft', 'medium', 'hard', 'stark' }
+local PALETTES = require('torchlight.palettes').names()
 
 --- Resolve a group to its final attributes, following any link.
 local function get_hl(name)
@@ -8,8 +9,8 @@ end
 --- Names of every group the theme defines.
 --- Scanning nvim's whole highlight table instead would pick up built-in and
 --- third-party groups, which the theme does not control.
-local function defined_groups(contrast)
-  local colors = require('torchlight.colors')
+local function defined_groups(contrast, palette)
+  local colors = require('torchlight.palettes').get(palette or 'torchlight')
   local opts = { contrast = contrast }
   local names = {}
   for _, module in ipairs(require('torchlight.groups')) do
@@ -44,7 +45,7 @@ describe('torchlight', function()
     -- also fixes the background that vimcolorschemes.com renders, because
     -- its extractor runs a bare `:colorscheme torchlight`.
     it('defaults to hard contrast', function()
-      require('torchlight.settings').set({})
+      require('torchlight.settings').reset()
       require('torchlight').setup()
       assert.equals('hard', require('torchlight.settings').opts.contrast)
       assert.equals(0x131312, get_hl('Normal').bg)
@@ -61,6 +62,69 @@ describe('torchlight', function()
 
     it('exposes defined colors', function()
       assert.equals('#302F2E', require('torchlight.colors').bg5)
+    end)
+
+    it('raises on an unknown palette name', function()
+      assert.has_error(function()
+        require('torchlight.palettes').get('definitely_not_a_palette')
+      end)
+    end)
+
+    -- A group reads whichever colors it names regardless of the palette in
+    -- force, and the guard raises on a missing one. Parity is what keeps a
+    -- variant from failing only on a plugin nobody tested it against.
+    for _, palette in ipairs(PALETTES) do
+      it('defines the same keys as torchlight in ' .. palette, function()
+        local function keys(name)
+          local out = {}
+          for key in pairs(require('torchlight.palettes.' .. name)) do
+            out[#out + 1] = key
+          end
+          table.sort(out)
+          return out
+        end
+        assert.same(keys('torchlight'), keys(palette))
+      end)
+    end
+  end)
+
+  describe('variants', function()
+    for _, palette in ipairs(PALETTES) do
+      local name = palette == 'torchlight' and 'torchlight' or 'torchlight-' .. palette
+
+      it('load via :colorscheme ' .. name, function()
+        assert.has_no.errors(function()
+          vim.cmd.colorscheme(name)
+        end)
+        assert.equals(name, vim.g.colors_name)
+      end)
+
+      -- The same defect the default palette is checked for, applied to every
+      -- variant. A generated ramp can land a foreground on a background.
+      it('never set fg equal to bg in ' .. palette, function()
+        require('torchlight.settings').reset()
+        require('torchlight').setup({ palette = palette })
+        local offenders = {}
+        for _, group in ipairs(defined_groups('hard', palette)) do
+          local hl = get_hl(group)
+          if hl.fg and hl.bg and hl.fg == hl.bg then
+            table.insert(offenders, string.format('%s (#%06X)', group, hl.fg))
+          end
+        end
+        table.sort(offenders)
+        assert.same({}, offenders)
+      end)
+    end
+
+    -- Switching back must actually switch back, and must not silently reset
+    -- an option the user set earlier.
+    it('return to the default palette and keep the contrast', function()
+      require('torchlight.settings').reset()
+      require('torchlight').setup({ contrast = 'stark' })
+      vim.cmd.colorscheme('torchlight-dusk')
+      vim.cmd.colorscheme('torchlight')
+      assert.equals('torchlight', vim.g.colors_name)
+      assert.equals('stark', require('torchlight.settings').opts.contrast)
     end)
   end)
 
