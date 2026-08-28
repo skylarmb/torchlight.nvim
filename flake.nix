@@ -16,6 +16,20 @@
       system:
       let
         pkgs = import nixpkgs { inherit system; };
+
+        # hsluv is not in nixpkgs, so build the rock from the upstream repo.
+        # Its own rockspec fetches an unpinned git master, which nix cannot
+        # reproduce, so pin the revision here and let luarocks build in place.
+        hsluv = pkgs.luajitPackages.buildLuarocksPackage {
+          pname = "hsluv";
+          version = "0.1-1";
+          src = pkgs.fetchFromGitHub {
+            owner = "hsluv";
+            repo = "hsluv-lua";
+            rev = "be26eba8c76f41ab8de274d99c102f00162db91c";
+            hash = "sha256-1kDAt1CKlbfQCOXgpnxLEeMlq69e4WhJOLTs/DiGU50=";
+          };
+        };
       in
       {
         devShells.default = pkgs.mkShell {
@@ -32,6 +46,9 @@
 
             pkgs.luajitPackages.luacheck
             pkgs.stylua
+
+            # HSLuv conversions, for perceptual analysis of the palette.
+            hsluv
           ];
         };
       }
