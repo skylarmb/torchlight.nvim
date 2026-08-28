@@ -7,10 +7,11 @@ CONTENTS                                              *torchlight-contents*
   2. Requirements ................................ |torchlight-requirements|
   3. Setup ............................................. |torchlight-setup|
   4. Contrast ....................................... |torchlight-contrast|
-  5. Plugin support ........................... |torchlight-plugin-support|
-  6. Terminal colors ......................... |torchlight-terminal-colors|
-  7. Ports ............................................. |torchlight-ports|
-  8. Issues ........................................... |torchlight-issues|
+  5. Variants ....................................... |torchlight-variants|
+  6. Plugin support ........................... |torchlight-plugin-support|
+  7. Terminal colors ......................... |torchlight-terminal-colors|
+  8. Ports ............................................. |torchlight-ports|
+  9. Issues ........................................... |torchlight-issues|
 
 ==============================================================================
 1. INTRODUCTION                                   *torchlight-introduction*
@@ -53,12 +54,16 @@ Load the colorscheme by hand with either form: >lua
 <
 `:colorscheme torchlight` keeps the options from an earlier `setup()` call.
 Call `setup()` first when you want a contrast level other than the default.
+It does select the default palette, so it returns from a variant.
 
 Options ~
 
                                                         *torchlight-options*
 contrast                            string    default: "hard"
     The background contrast level. See |torchlight-contrast|.
+
+palette                             string    default: "torchlight"
+    The palette. See |torchlight-variants|.
 
 ==============================================================================
 4. CONTRAST                                           *torchlight-contrast*
@@ -83,8 +88,36 @@ It is no longer maintained. New colors and fixes do not reach it. Use
 
 The ports in `extras` follow the same rule. Each soft port file carries a
 note at the top.
+
 ==============================================================================
-5. PLUGIN SUPPORT                               *torchlight-plugin-support*
+5. VARIANTS                                           *torchlight-variants*
+
+The `palette` option sets which colors the theme uses. It accepts three
+values. Every contrast level works with every palette.
+
+    Value           Colorscheme             Description ~
+    "torchlight"    torchlight              The original, mixed by hand.
+    "dusk"          torchlight-dusk         A deep base with warm chroma
+                                            carried into the neutrals.
+    "dawn"          torchlight-dawn         Pale and cool, every color kept
+                                            off the gamut wall.
+
+Select a variant with either form: >lua
+
+    require("torchlight").setup({ palette = "dusk" })
+<
+>vim
+    colorscheme torchlight-dusk
+<
+`:colorscheme torchlight` returns to the default palette and keeps the
+contrast level already in force.
+
+"dusk" and "dawn" are generated from HSLuv specs, so their ramps step evenly
+in perceived lightness. Every palette holds the low-blue goal of the theme:
+no color sits in the blue arc.
+
+==============================================================================
+6. PLUGIN SUPPORT                               *torchlight-plugin-support*
 
 Torchlight sets highlight groups for these plugins:
 
@@ -98,20 +131,20 @@ Plugins that are absent from this list still work. They use the default
 highlight groups.
 
 ==============================================================================
-6. TERMINAL COLORS                             *torchlight-terminal-colors*
+7. TERMINAL COLORS                             *torchlight-terminal-colors*
 
 Torchlight sets `g:terminal_color_0` through `g:terminal_color_15`. The
 built-in terminal uses the palette of the colorscheme.
 
 ==============================================================================
-7. PORTS                                                 *torchlight-ports*
+8. PORTS                                                 *torchlight-ports*
 
 The `extras` folder in the repository holds the palette for other tools.
 Ports cover Alacritty, Ghostty, WezTerm, and Zed. Each terminal port has one
 file per contrast level.
 
 ==============================================================================
-8. ISSUES                                               *torchlight-issues*
+9. ISSUES                                               *torchlight-issues*
 
 Report a plugin that looks wrong under this colorscheme:
 

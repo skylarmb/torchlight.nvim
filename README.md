@@ -23,10 +23,33 @@ Install using your favorite plugin manager, e.g. `lazy.nvim`
     priority = 1000,
     opts = {
       contrast = "hard", -- possible values: medium, hard, stark (soft is deprecated)
+      palette = "torchlight", -- possible values: torchlight, dusk, dawn
     },
   },
 
 ```
+
+## Variants
+
+Three palettes ship with the theme. `torchlight` is the default and is
+unchanged.
+
+| Palette | `:colorscheme` | Description |
+| --- | --- | --- |
+| `torchlight` | `torchlight` | The original, mixed by hand. |
+| `dusk` | `torchlight-dusk` | A deep base with warm chroma carried into the neutrals. |
+| `dawn` | `torchlight-dawn` | Pale and cool, every colour kept off the gamut wall. |
+
+`dusk` and `dawn` are built from HSLuv specs, so their ramps step evenly in
+perceived lightness. Every palette holds the low-blue goal.
+
+Select one with the `palette` option or by name:
+
+```vim
+colorscheme torchlight-dusk
+```
+
+Every contrast level works with every palette.
 
 ## Contrast
 
