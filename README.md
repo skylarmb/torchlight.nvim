@@ -14,7 +14,8 @@ If you use a plugin that is not supported or looks incorrect when using this col
 
 ## Usage
 
-Install using your favorite plugin manager, e.g. `lazy.nvim`
+Install with your favorite plugin manager. See [Variants](#variants) for the
+palettes and [Contrast](#contrast) for the contrast levels.
 
 ```lua
   {
@@ -26,8 +27,54 @@ Install using your favorite plugin manager, e.g. `lazy.nvim`
       palette = "torchlight", -- possible values: torchlight, dusk, dawn
     },
   },
-
 ```
+
+<details>
+    <summary><code>LazyVim</code></summary>
+
+LazyVim runs `:colorscheme` after the plugin is set up, and `:colorscheme
+torchlight` selects the default palette. Naming a variant in `opts.palette`
+therefore has no effect: name it in `colorscheme` instead. Contrast is not
+affected either way.
+
+```lua
+  -- lua/plugins/colorscheme.lua
+  {
+    "skylarmb/torchlight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      contrast = "hard",
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "torchlight-dusk", -- or torchlight, torchlight-dawn
+    },
+  },
+```
+
+</details>
+
+<details>
+    <summary><code>pckr.nvim</code></summary>
+
+```lua
+  require("pckr").add({
+    {
+      "skylarmb/torchlight.nvim",
+      config = function()
+        require("torchlight").setup({
+          contrast = "hard",
+          palette = "torchlight", -- or dusk, dawn
+        })
+      end,
+    },
+  })
+```
+
+</details>
 
 ## Variants
 
@@ -50,6 +97,11 @@ colorscheme torchlight-dusk
 ```
 
 Every contrast level works with every palette.
+
+Whichever of the two names the palette last wins, and `:colorscheme` always
+names one: `:colorscheme torchlight` returns to the default palette. Contrast is
+never affected, so `:colorscheme torchlight-dawn` keeps the level already in
+force.
 
 ## Contrast
 

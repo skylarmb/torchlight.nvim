@@ -42,8 +42,39 @@ Install the plugin, then call `setup()`. With lazy.nvim: >lua
       priority = 1000,
       opts = {
         contrast = "medium",
+        palette = "dusk",
       },
     }
+<
+With LazyVim, name the variant in `colorscheme` rather than in `opts`. LazyVim
+runs `:colorscheme` after the plugin is set up, and `:colorscheme torchlight`
+selects the default palette, so `opts.palette` has no effect. Contrast is not
+affected either way. >lua
+
+    {
+      "skylarmb/torchlight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = { contrast = "medium" },
+    },
+    {
+      "LazyVim/LazyVim",
+      opts = { colorscheme = "torchlight-dusk" },
+    }
+<
+With pckr.nvim: >lua
+
+    require("pckr").add({
+      {
+        "skylarmb/torchlight.nvim",
+        config = function()
+          require("torchlight").setup({
+            contrast = "medium",
+            palette = "dusk",
+          })
+        end,
+      },
+    })
 <
 Load the colorscheme by hand with either form: >lua
 
