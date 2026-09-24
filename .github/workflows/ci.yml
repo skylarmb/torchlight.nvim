@@ -13,7 +13,10 @@ jobs:
       # Report every platform's result, not just the first failure.
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        # macos disabled until cachix / nix caching works properly on macos ci runners
+        # currently it is extremely slow (~90+ seconds compared to ~10 seconds on linux)
+        # os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
 
